@@ -4,11 +4,18 @@
 #define PROCS_MAX 8         // Maximum number of processes
 #define PROC_UNUSED 0       // Unused process control structure
 #define PROC_RUNNABLE 1     // Runnable process
+#define SATP_SV32 (1u << 31)
+#define PAGE_V    (1 << 0) // Valid
+#define PAGE_R    (1 << 1) // Readable
+#define PAGE_W    (1 << 2) // Writable
+#define PAGE_X    (1 << 3) // Executable
+#define PAGE_U    (1 << 4) // User (accessable in user mode)
 
 struct process {
     int pid;                // Process ID
     int state;              // Process state
     vaddr_t sp;             // Stack pointer
+    uint32_t* page_table;   // Process page table
     uint8_t stack[8192];    // Kernel stack
 };
 
