@@ -1,9 +1,10 @@
 #pragma once
 #include "common.h"
 
-#define PROCS_MAX 8             // Maximum number of processes
-#define PROC_UNUSED 0           // Unused process control structure
+#define PROCS_MAX     8         // Maximum number of processes
+#define PROC_UNUSED   0         // Unused process control structure
 #define PROC_RUNNABLE 1         // Runnable process
+#define PROC_EXITED   2
 #define SATP_SV32 (1u << 31)
 #define PAGE_V    (1 << 0)      // Valid
 #define PAGE_R    (1 << 1)      // Readable
